@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MdEmail, MdPhone, MdPerson } from 'react-icons/md';
-
+import { MdEmail, MdPhone, MdPerson } from "react-icons/md";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -20,6 +19,13 @@ const Navbar = () => {
     setDropdownOpen(!dropdownOpen); // Toggle dropdown visibility
   };
 
+  const scrollToAboutUs = () => {
+    const element = document.getElementById("about-us");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="pt-5 font-plus-jakarta">
       <div className="container text-black mx-auto flex justify-around gap-[34rem]">
@@ -32,8 +38,8 @@ const Navbar = () => {
             <Link to="/" className="ml-5">
               Home
             </Link>
-            <Link to="/about-us" className="">
-              About us
+            <Link to="/" onClick={scrollToAboutUs} className="">
+              About Us
             </Link>
           </div>
 
@@ -53,13 +59,11 @@ const Navbar = () => {
                   className="flex items-center gap-2 bg-indigo-500 text-white rounded-full p-2 hover:bg-indigo-600"
                 >
                   <MdPerson className="text-white text-2xl" />
-                 
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg ">
-                 
                     <button
                       onClick={handleLogout}
                       className="block w-full text-left px-4 py-2 text-black bg-red-500 rounded-lg hover:bg-red-600"

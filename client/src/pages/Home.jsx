@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import img from "../assets/img.png";
 import { Link } from "react-router-dom";
 import '../App.css'; // Import the CSS file for animations
+import AboutUs from "./AboutUs";
 
 const Home = () => {
   const items = ["Wallet", "Key", "Chain", "Items"];
@@ -26,6 +27,7 @@ const Home = () => {
   }, [currentIndex]);
 
   return (
+    <>
     <div className="bg-white text-black flex justify-around gap-[20rem] h-[80vh] items-center">
       <div className="w-[500px] ">
         <h1 className="text-7xl font-bold leading-tight mb-5">
@@ -49,6 +51,8 @@ const Home = () => {
         <img src={img} style={{ height: "350px" }} alt="img" />
       </div>
     </div>
+    <AboutUs/>
+    </>
   );
 };
 
