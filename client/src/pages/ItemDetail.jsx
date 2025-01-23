@@ -13,19 +13,16 @@ const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const userId = import.meta.env.VITE_EMAILJS_USER_ID;
 
 function ItemDetail() {
-  const { id } = useParams(); // Get the item ID from the URL
-  const [item, setItem] = useState(null); // Initialize state for item details
+  const { id } = useParams(); 
+  const [item, setItem] = useState(null); 
 
-  // Log environment variables to verify they are being read correctly
-  console.log("Service ID:", serviceId);
-  console.log("Template ID:", templateId);
-  console.log("User ID:", userId);
+
 
   useEffect(() => {
     const fetchItem = async () => {
       try {
         const res = await api.get(`/items/${id}`);
-        console.log(res.data);
+  
         setItem(res.data);
       } catch (error) {
         console.error("Failed to fetch item details:", error);
@@ -49,7 +46,6 @@ function ItemDetail() {
 
     emailjs.send(serviceId, templateId, templateParams, userId).then(
       (response) => {
-        console.log("SUCCESS!", response.status, response.text);
         toast.success("Notification sent successfully!");
       },
       (error) => {
@@ -60,7 +56,7 @@ function ItemDetail() {
   };
 
   if (!item) {
-    return <div>Loading...</div>; // Handle loading state
+    return <div>Loading...</div>;
   }
 
   return (

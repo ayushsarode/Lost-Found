@@ -19,7 +19,6 @@ function Register() {
             if (token) {
                 localStorage.setItem('token', token); // Store token
                 navigate('/items'); // Redirect to items page
-                console.log('Registration data sent:', userData); // Log user data
             } else {
                 alert('Registration successful, but no token received.');
                 navigate('/login'); // If no token, redirect to login page
