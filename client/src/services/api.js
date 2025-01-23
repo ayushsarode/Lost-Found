@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://lost-found-1.onrender.com/api', 
+  baseURL: 'https://lost-found-1.onrender.com/', 
 });
 
 // Automatically include token in headers if present
