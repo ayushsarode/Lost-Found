@@ -9,14 +9,13 @@ const app = express();
 connectDB();
 app.use('/uploads', express.static('uploads'));
 
-// Middleware
-app.use(cors());
+
 app.use(express.json());
 
 
 app.use(cors({
     origin: [
-      'https://lost-found-six.vercel.app/'
+      'https://lost-found-six.vercel.app'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow the necessary HTTP methods
     credentials: true, // If you need to send cookies or other credentials
