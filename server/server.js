@@ -16,8 +16,7 @@ app.use(express.json());
 
 app.use(cors({
     origin: [
-      'http://localhost:3000', // Replace with the actual origin of your frontend application
-      'https://lost-found-six.vercel.app/, // If you have a production frontend
+      'https://lost-found-six.vercel.app/'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow the necessary HTTP methods
     credentials: true, // If you need to send cookies or other credentials
