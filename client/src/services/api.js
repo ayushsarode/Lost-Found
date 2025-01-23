@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Adjust baseURL according to your backend setup
+  baseURL: 'https://lost-found-1.onrender.com/api', 
 });
 
 // Automatically include token in headers if present
