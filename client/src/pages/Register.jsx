@@ -11,18 +11,21 @@ function Register() {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const res = await api.post('/auth/register', { name, email, password });
+            const userData = { name, email, password }; // Prepare user data
+            const res = await api.post('/auth/register', userData);
             
             // Assuming the backend sends a token after successful registration
             const token = res.data.token; // Get token from response
             if (token) {
                 localStorage.setItem('token', token); // Store token
                 navigate('/items'); // Redirect to items page
+                console.log('Registration data sent:', userData); // Log user data
             } else {
                 alert('Registration successful, but no token received.');
                 navigate('/login'); // If no token, redirect to login page
             }
         } catch (error) {
+            console.error('Registration error:', error.response ? error.response.data : error.message);
             alert('Registration failed!');
         }
     };
