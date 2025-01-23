@@ -13,6 +13,17 @@ app.use('/uploads', express.static('uploads'));
 app.use(cors());
 app.use(express.json());
 
+
+app.use(cors({
+    origin: [
+      'http://localhost:3000', // Replace with the actual origin of your frontend application
+      'https://lost-found-six.vercel.app/, // If you have a production frontend
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow the necessary HTTP methods
+    credentials: true, // If you need to send cookies or other credentials
+  }));
+
+
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/items', require('./routes/itemRoutes'));
