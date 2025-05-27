@@ -15,7 +15,9 @@ app.use(express.json());
 
 app.use(cors({
     origin: [
-      'https://lost-found-six.vercel.app'
+      'https://lost-found-six.vercel.app',
+      'http://localhost:5173'
+
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow the necessary HTTP methods
     credentials: true, // If you need to send cookies or other credentials
